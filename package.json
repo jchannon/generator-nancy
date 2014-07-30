@@ -1,10 +1,10 @@
 {
-  "name": "generator-aspnet",
+  "name": "generator-nancy",
   "version": "0.0.1",
-  "description": "Yeoman generator for ASP.NET vNext apps",
-  "license": "Apache License 2.0",
+  "description": "Yeoman generator for Nancy ASP.NET vNext apps",
+  "license": "MIT",
   "main": "app/index.js",
-  "repository": "shirhatti/generator-aspnet",
+  "repository": "jchannon/generator-aspnet",
   "author": {
     "name": "Sourabh Shirhatti",
     "email": "shirhatti@outlook.com",
