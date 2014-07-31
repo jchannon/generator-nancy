@@ -6,8 +6,8 @@ var chalk = require('chalk');
 
 
 var AspnetGenerator = yeoman.generators.Base.extend({
-    
-    init: function () {
+
+    init: function() {
         this.log(yosay('Welcome to the marvelous Nancy generator!'));
     },
 
@@ -37,7 +37,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
     //     //     }.bind(this));
     //     },
 
-    askForName: function () {
+    askForName: function() {
         var done = this.async();
 
         var app = 'MyNancyApp';
@@ -46,14 +46,14 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             message: 'What\'s the name of your Nancy ASP.NET application?',
             default: app
         }];
-        this.prompt(prompts, function (props) {
+        this.prompt(prompts, function(props) {
             this.applicationName = props.applicationName;
 
             done();
-            }.bind(this));
+        }.bind(this));
     },
 
-    retrieveContent: function () {
+    retrieveContent: function() {
         var done = this.async();
 
         this.remote('jchannon', 'aspnet_vnext_samples', function(err, remote) {
@@ -61,24 +61,18 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         });
     },
 
-    writing: function () {
+    writing: function() {
         this.copy(this.cacheRoot() + '/jchannon/aspnet_vnext_samples/master/NuGet.config', 'NuGet.config');
         this.mkdir(this.applicationName);
-        switch(this.type) {
-            case 'web':
-                this.directory(this.cacheRoot() + '/jchannon/aspnet_vnext_samples/master/web', this.applicationName);
-                break;
-            default:
-                console.log('Unimplemented');
-        }
+        this.directory(this.cacheRoot() + '/jchannon/aspnet_vnext_samples/master/web', this.applicationName);
     },
 
-    end: function () {
+    end: function() {
         console.log(this.cacheRoot());
         if (!this.options['skip-install']) {
             this.config.set('skip-install', true)
             //this.installDependencies();
-            console.log('executing kpm restore');
+            
             this.spawnCommand('kpm', ['restore', './' + this.applicationName]);
         }
     }
