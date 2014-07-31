@@ -43,7 +43,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         var app = (this.type == 'console'? 'ConsoleApplication1' : 'WebApplication1')
         var prompts = [{
             name: 'applicationName',
-            message: 'What\'s the name of your ASP.NET application?',
+            message: 'What\'s the name of your Nancy ASP.NET application?',
             default: app
         }];
         this.prompt(prompts, function (props) {
