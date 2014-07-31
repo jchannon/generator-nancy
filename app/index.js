@@ -84,6 +84,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
         if (!this.options['skip-install']) {
             this.config.set('skip-install', true)
             //this.installDependencies();
+            console.log('executing kpm restore');
             this.spawnCommand('kpm', ['restore', './' + this.applicationName]);
         }
     }
