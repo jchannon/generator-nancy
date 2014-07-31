@@ -1,4 +1,4 @@
-# generator-aspnet
+# generator-nancy
 
 Yeoman generator for Nancy with ASP.NET vNext projects
 
