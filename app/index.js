@@ -73,7 +73,7 @@ var AspnetGenerator = yeoman.generators.Base.extend({
             this.config.set('skip-install', true)
             //this.installDependencies();
             
-            this.spawnCommand('kpm', ['restore', './' + this.applicationName]);
+            this.spawnCommand('dnu', ['restore']);
         }
     }
 });
